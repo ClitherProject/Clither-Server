@@ -1,26 +1,15 @@
-# Ogar2-Server [![Travis-CI](https://travis-ci.org/OgarioProject/Ogar2-Server.svg)](https://travis-ci.org/OgarioProject/Ogar2-Server)
+# Clither Server [![Travis-CI](https://travis-ci.org/ClitherProject/Clither-Server.svg)](https://travis-ci.org/ClitherProject/Clither-Server)
 
-Thank you for being interested in the OgarioProject also known as Lar.io.
+* Downloads: **NO DOWNLOADS YET
 
-* Downloads: http://ci.thundergemios10.com/job/Ogar2-Server/
-
-(**NOTE:** This are experimental builds! We cannot gurrantee that it will work at all!)
-
-# Current features above original Ogar2:
-* Logging in with Facebook.
-* Logging in with Google.
-* Splitting (Beta).
-* Ejecting (Beta).
-* Multi-Colored food.
-* Leaderboard.
-* Suppressing rendering errors.
-
-# Current issues:
-* Entities sometimes not deleting properly from map.
-* No splitting/ejecting in direction.
-* Cannot move viruses with mass.
-* Cannot be split from eating a virus.
+# Upcoming Features:
+* High Performance
+* ALL Vanilla Slither.io features!
+* Commands!
+* Plugin API!
+* Bots!
+* and many more!
 
 # Team Members:
-* SkorrloreGaming-Productions (Developer/Project Lead)
-* ThunderGemios10 (Developer/CEO)
+* ThunderGemios10 (Developer/Project Lead)
+* Porama6400 (Developer/Project Co-Lead)
