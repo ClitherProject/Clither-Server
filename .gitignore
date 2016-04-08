@@ -1,8 +1,21 @@
+## IntelliJ
+.idea/
+
+## Eclipse
+.settings/
+.classpath
+.project
+
+## Maven
 target/
 test/
-*.DS_Store
-server.log
 dependency-reduced-pom.xml
+
+## Clither stuff
+server.log
 config.json
 gameserver.ini*
 /bin/
+
+## Other
+*.DS_Store
