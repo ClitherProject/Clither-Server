@@ -22,11 +22,10 @@ public class WebSocketHandler extends SimpleChannelInboundHandler {
             // ----- Client authenticity check code -----
             // !!!!! WARNING !!!!!
             // THE BELOW SECTION OF CODE CHECKS TO ENSURE THAT CONNECTIONS ARE COMING
-            // FROM THE OFFICIAL AGAR.IO CLIENT. IF YOU REMOVE OR MODIFY THE BELOW
+            // FROM THE OFFICIAL SLITHER.IO CLIENT. IF YOU REMOVE OR MODIFY THE BELOW
             // SECTION OF CODE TO ALLOW CONNECTIONS FROM A CLIENT ON A DIFFERENT DOMAIN,
             // YOU MAY BE COMMITTING COPYRIGHT INFRINGEMENT AND LEGAL ACTION MAY BE TAKEN
-            // AGAINST YOU. THIS SECTION OF CODE WAS ADDED ON JULY 9, 2015 AT THE REQUEST
-            // OF THE AGAR.IO DEVELOPERS.
+            // AGAINST YOU.
             String origin = request.headers().get(HttpHeaders.ORIGIN);
             if (origin != null) {
                 switch (origin) {

@@ -7,6 +7,10 @@ import java.util.Objects;
 import java.util.logging.Logger;
 
 import org.clitherproject.clither.server.net.packet.Packet;
+import org.clitherproject.clither.server.net.packet.inbound.PacketInInitial;
+import org.clitherproject.clither.server.net.packet.outbound.PacketOutSetUsername;
+import org.clitherproject.clither.server.net.packet.outbound.PacketOutUpdateOwnSnake;
+import org.clitherproject.clither.server.net.throwable.UnhandledPacketException;
 import org.clitherproject.clither.server.world.PlayerImpl;
 
 import com.google.common.base.Preconditions;
@@ -38,7 +42,30 @@ public class PlayerConnection {
     }
 
     public void handle(Packet packet) {
-    	// TODO: Handle packets..
+        if (packet instanceof PacketOutSetUsername) {
+            handle((PacketOutSetUsername) packet);
+        } else if (packet instanceof PacketOutUpdateOwnSnake) {
+            handle((PacketOutUpdateOwnSnake) packet);
+        } else if (packet instanceof PacketInInitial) {
+            handle((PacketInInitial) packet);
+        } else {
+            throw new UnhandledPacketException("Unhandled packet: " + packet);
+        }
+    }
+    
+    public void handle(PacketInInitial packet) {
+        checkConnected();
+        Preconditions.checkState(state == ConnectionState.AUTHENTICATE, "Not expecting AUTHENTICATE");
+        state = ConnectionState.RESET;
+        protocolVersion = packet.protocolVersion;
+    }
+    
+    public void handle(PacketOutSetUsername packet) {
+        checkConnected();
+    }
+    
+    public void handle(PacketOutUpdateOwnSnake packet) {
+        checkConnected();
     }
     
     public boolean isIndividualMovementEnabled() {
