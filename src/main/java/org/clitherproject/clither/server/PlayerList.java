@@ -27,7 +27,7 @@ public class PlayerList {
     }
 
     public void addPlayer(PlayerImpl player) {
-        log.info(player.getAddress().toString().split(":")[0]+" ("+player.getClientID()+") has conected to the server!");
+        log.info(player.getAddress().toString().split(":")[0]+" ("+player.getClientID()+") has connected to the server!");
         players.add(player);
     }
 

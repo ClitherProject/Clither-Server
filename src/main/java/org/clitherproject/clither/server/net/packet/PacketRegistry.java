@@ -15,8 +15,8 @@ public class PacketRegistry {
 
     static {
         // Clientbound packets
-        CLIENTBOUND.registerPacket(2, PacketOutSetUsername.class);
-        CLIENTBOUND.registerPacket(3, PacketOutUpdateOwnSnake.class);
+        CLIENTBOUND.registerPacket(1, PacketOutSetUsername.class);
+        CLIENTBOUND.registerPacket(2, PacketOutUpdateOwnSnake.class);
 
         // Serverbound packets
     	SERVERBOUND.registerPacket(1, PacketInInitial.class);
