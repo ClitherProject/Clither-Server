@@ -14,7 +14,7 @@ public class PacketEncoder extends MessageToMessageEncoder<Packet> {
 
     @Override
     protected void encode(ChannelHandlerContext ctx, Packet packet, List out) throws Exception {
-        ByteBuf buf = ctx.alloc().buffer().order(ByteOrder.LITTLE_ENDIAN);
+        ByteBuf buf = ctx.alloc().buffer().order(ByteOrder.BIG_ENDIAN);
         int packetId = PacketRegistry.CLIENTBOUND.getPacketId(packet.getClass());
         if (packetId == -1) {
             throw new IllegalArgumentException("Provided packet is not registered as a clientbound packet!");

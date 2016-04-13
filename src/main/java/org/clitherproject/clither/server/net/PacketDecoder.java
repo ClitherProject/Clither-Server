@@ -15,7 +15,8 @@ public class PacketDecoder extends MessageToMessageDecoder<WebSocketFrame> {
 
     @Override
     protected void decode(ChannelHandlerContext ctx, WebSocketFrame frame, List<Object> out) throws Exception {
-        ByteBuf buf = frame.content().order(ByteOrder.LITTLE_ENDIAN);
+        @SuppressWarnings("deprecation")
+		ByteBuf buf = frame.content().order(ByteOrder.BIG_ENDIAN);
         if (buf.capacity() < 1) {
             // Discard empty messages
             return;
@@ -26,7 +27,7 @@ public class PacketDecoder extends MessageToMessageDecoder<WebSocketFrame> {
         Packet packet = PacketRegistry.SERVERBOUND.constructPacket(packetId);
 
         if (packet == null) {
-            //throw new UnknownPacketException("Unknown packet ID: " + packetId);
+            // throw new UnknownPacketException("Unknown packet ID: " + packetId);
             return;
         }
 
