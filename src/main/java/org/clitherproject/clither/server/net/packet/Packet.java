@@ -34,7 +34,8 @@ public abstract class Packet {
         return buffer.toString(Charsets.UTF_8);
     }
 
-    public static String readUTF16(ByteBuf in) {
+    @SuppressWarnings("deprecation")
+	public static String readUTF16(ByteBuf in) {
         in = in.order(ByteOrder.BIG_ENDIAN);
         ByteBuf buffer = in.alloc().buffer();
         char chr;
@@ -50,7 +51,8 @@ public abstract class Packet {
         out.writeByte(0);
     }
 
-    public static void writeUTF16(ByteBuf out, String s) {
+    @SuppressWarnings("deprecation")
+	public static void writeUTF16(ByteBuf out, String s) {
         out.order(ByteOrder.BIG_ENDIAN).writeBytes(s.getBytes(Charsets.UTF_16LE));
         out.writeChar(0);
     }

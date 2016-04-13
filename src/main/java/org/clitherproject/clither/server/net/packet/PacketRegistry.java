@@ -19,7 +19,7 @@ public class PacketRegistry {
         CLIENTBOUND.registerPacket(3, PacketOutUpdateOwnSnake.class);
 
         // Serverbound packets
-    	// TODO: Register Serverbound packets..
+    	SERVERBOUND.registerPacket(1, PacketInInitial.class);
     }
 
     // Static-use class

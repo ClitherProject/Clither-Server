@@ -62,6 +62,7 @@ public class PlayerConnection {
     
     public void handle(PacketOutSetUsername packet) {
         checkConnected();
+        state = ConnectionState.CONNECTED;
     }
     
     public void handle(PacketOutUpdateOwnSnake packet) {
