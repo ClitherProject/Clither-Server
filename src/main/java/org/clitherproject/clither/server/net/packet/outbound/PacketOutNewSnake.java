@@ -1,20 +1,22 @@
-package org.clitherproject.clither.server.net.flow.out;
+package org.clitherproject.clither.server.net.packet.outbound;
 
 import io.netty.buffer.ByteBuf;
-import org.clitherproject.clither.server.net.flow.type.PacketOut;
+import org.clitherproject.clither.server.net.packet.Packet;
 
-/**
- * Created by Porama2 on 14/4/2016.
- */
-public class PacketOutNewSnake extends PacketOut {
+public class PacketOutNewSnake extends Packet {
     int U1 = 0; //UNKNOWN
     int U2 = 0; //UNKNOWN
     int packetType = -1;
-
-    @Override
-    public void write(ByteBuf buf) {
-
-    }
+	@Override
+	public void writeData(ByteBuf buf) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void readData(ByteBuf buf) {
+		// TODO Auto-generated method stub
+		
+	}
 
     /*
     function InitialPacket() {
