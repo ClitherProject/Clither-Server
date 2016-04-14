@@ -21,7 +21,9 @@ public class Commands {
         	Logger.getGlobal().info("Currently connected players ("+ClitherServer.getInstance().getPlayerList().getAllPlayers().toArray().length+"):");
             Collection<PlayerImpl> players = ClitherServer.getInstance().getPlayerList().getAllPlayers();
             for (PlayerImpl ob : players){
-            	Logger.getGlobal().info("IP: "+ob.getConnection().getRemoteAddress().toString().split(":")[0].split("/")[1]+" - Client ID: "+ob.getConnection().getRemoteAddress().toString().split(":")[1]+" - Name: "+ob.getName());
+
+                //TODO FIX THIS AFTER NETWORK WORK :P
+                //Logger.getGlobal().info("IP: "+ob.getConnection().getRemoteAddress().toString().split(":")[0].split("/")[1]+" - Client ID: "+ob.getConnection().getRemoteAddress().toString().split(":")[1]+" - Name: "+ob.getName());
             }
             break;
         case "stop":

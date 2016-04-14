@@ -76,10 +76,10 @@ public class NetworkManager {
 
             ch.pipeline().addLast(new HttpServerCodec());
             ch.pipeline().addLast(new HttpObjectAggregator(65536));
-            ch.pipeline().addLast(new WebSocketHandler());
-            ch.pipeline().addLast(new PacketDecoder());
-            ch.pipeline().addLast(new PacketEncoder());
-            ch.pipeline().addLast(new ClientHandler(server));
+            ch.pipeline().addLast(new Handshaker());
+            //ch.pipeline().addLast(new PacketDecoder());
+            //ch.pipeline().addLast(new PacketEncoder());
+            //ch.pipeline().addLast(new ClientHandler(server));
         }
     }
 }
