@@ -1,4 +1,4 @@
-package tick;
+package org.clitherproject.clither.server;
 
 import java.util.ArrayList;
 import java.util.List;

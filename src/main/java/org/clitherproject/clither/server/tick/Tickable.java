@@ -1,4 +1,4 @@
-package tick;
+package org.clitherproject.clither.server;
 
 /**
  * Created by Porama2 on 15/4/2016.
