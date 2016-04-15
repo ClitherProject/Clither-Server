@@ -1,4 +1,4 @@
-package org.clitherproject.clither.server;
+package org.clitherproject.clither.server.tick;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +12,9 @@ public class TickController {
 
     public TickController(int threads) {
         workers = new TickWorker[threads];
+        for (int i = 0; i < workers.length; i++) {
+            workers[i] = new TickWorker();
+        }
     }
 
     public void Update() {

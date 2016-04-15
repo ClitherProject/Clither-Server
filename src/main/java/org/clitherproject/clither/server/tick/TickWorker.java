@@ -1,4 +1,4 @@
-package org.clitherproject.clither.server;
+package org.clitherproject.clither.server.tick;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +13,7 @@ public class TickWorker extends Thread {
         works.add(work);
     }
 
-    public void Update(){
+    public void Update() {
         this.start();
     }
 

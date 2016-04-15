@@ -1,50 +1,41 @@
 package org.clitherproject.clither.server;
 
-import org.clitherproject.clither.server.world.WorldImpl;
 import org.clitherproject.clither.api.Clither;
 import org.clitherproject.clither.api.Server;
 import org.clitherproject.clither.api.plugin.Messenger;
 import org.clitherproject.clither.api.plugin.PluginManager;
 import org.clitherproject.clither.api.plugin.Scheduler;
-import org.clitherproject.clither.api.world.World;
-import org.clitherproject.clither.server.config.Configuration;
 import org.clitherproject.clither.server.command.Commands;
 import org.clitherproject.clither.server.config.ClitherConfig;
+import org.clitherproject.clither.server.config.Configuration;
 import org.clitherproject.clither.server.gui.ServerCLI;
 import org.clitherproject.clither.server.gui.ServerGUI;
 import org.clitherproject.clither.server.net.NetworkManager;
+import org.clitherproject.clither.server.tick.TickController;
 import org.clitherproject.clither.server.tick.TickWorker;
 import org.clitherproject.clither.server.tick.Tickable;
-import org.clitherproject.clither.server.tick.TickableSupplier;
 import org.clitherproject.clither.server.world.PlayerImpl;
+import org.clitherproject.clither.server.world.WorldImpl;
+
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.function.Supplier;
-import java.util.logging.ConsoleHandler;
-import java.util.logging.FileHandler;
-import java.util.logging.Formatter;
-import java.util.logging.Level;
-import java.util.logging.LogRecord;
-import java.util.logging.Logger;
+import java.util.logging.*;
 
 public class ClitherServer implements Server {
 
-    private static ClitherServer instance;
     public static final Logger log = Logger.getGlobal();
+    private static ClitherServer instance;
     private final PlayerList playerList = new PlayerList(this);
-    private Scheduler scheduler;
     private final String configurationFile = "server.properties";
     private final boolean debugMode = Boolean.getBoolean("debug");
-    private final Set<TickWorker> tickWorkers = new HashSet<TickWorker>();
+    private final TickController tickController = new TickController(4);
     private final Messenger messenger = new Messenger();
+    private Scheduler scheduler;
     private int tickThreads = Integer.getInteger("tickThreads", 1);
     private NetworkManager networkManager;
     private PluginManager pluginManager;
@@ -77,9 +68,9 @@ public class ClitherServer implements Server {
     public WorldImpl getWorld() {
         return world;
     }
-    
+
     public Scheduler getScheduler() {
-    	return scheduler;
+        return scheduler;
     }
 
     public Messenger getMessenger() {
@@ -177,7 +168,7 @@ public class ClitherServer implements Server {
             log.warning("Use of multiple tick threads is experimental and may be unstable!");
         }
         for (int i = 0; i < tickThreads; i++) {
-            tickWorkers.add(new TickWorker());
+            //tickWorkers.add(new TickWorker());
         }
         if (!new File(configurationFile).isFile()) {
             saveConfig();
@@ -202,25 +193,25 @@ public class ClitherServer implements Server {
         try {
             networkManager.start();
         } catch (IOException | InterruptedException ex) {
-            log.info("Failed to start server! "+ex.getMessage());
+            log.info("Failed to start server! " + ex.getMessage());
             ex.printStackTrace();
             if (ServerGUI.isSpawned()) {
-            	System.exit(1);
+                System.exit(1);
             } else {
                 System.exit(1);
             }
         }
-        tickWorkers.forEach(TickWorker::start);
+        //tickWorkers.forEach(TickWorker::start);
         running = true;
         while (running) {
             try {
                 long startTime = System.currentTimeMillis();
                 tick++;
-                world.tick(this::tick);
+                //world.tick(this::tick);
                 for (PlayerImpl player : playerList.getAllPlayers()) {
-                    tick(player.getTracker()::updateNodes);
+                    //tick(player.getTracker()::updateNodes);
                 }
-                tickWorkers.forEach(TickWorker::waitForCompletion);
+                //tickWorkers.forEach(TickWorker::waitForCompletion);
                 long tickDuration = System.currentTimeMillis() - startTime;
                 if (tickDuration < 50) {
                     log.finer("Tick took " + tickDuration + "ms, sleeping for a bit");
@@ -232,17 +223,15 @@ public class ClitherServer implements Server {
                 break;
             }
         }
-        tickWorkers.forEach(TickWorker::shutdownGracefully);
-        tickWorkers.forEach(TickWorker::waitForShutdown);
         networkManager.shutdown();
         log.info("Disabling plugins...");
         pluginManager.disablePlugins();
         log.info("Successfully stopped server!");
         try {
-			Thread.sleep(1500);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+            Thread.sleep(1500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         System.exit(-1);
     }
 
@@ -258,28 +247,6 @@ public class ClitherServer implements Server {
         running = false;
     }
 
-    private void tick(Tickable... tickables) {
-        for (Tickable t : tickables) {
-            TickWorker bestWorker = null;
-            for (TickWorker w : tickWorkers) {
-                if (bestWorker == null) {
-                    bestWorker = w;
-                    continue;
-                }
-                if (w.getObjectsRemaining() < bestWorker.getObjectsRemaining()) {
-                    bestWorker = w;
-                }
-            }
-            bestWorker.tick(t);
-        }
-    }
-
-    @SuppressWarnings({ "rawtypes", "unused" })
-    private void tick(Supplier... suppliers) {
-        for (Supplier s : suppliers) {
-            tick(new TickableSupplier(s));
-        }
-    }
 
     private static class LogFormatter extends Formatter {
 
