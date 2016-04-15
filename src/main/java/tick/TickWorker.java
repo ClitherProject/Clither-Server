@@ -13,9 +13,8 @@ public class TickWorker extends Thread {
         works.add(work);
     }
 
-    @Override
-    public synchronized void start() {
-
+    public void Update(){
+        this.start();
     }
 
     @Override
