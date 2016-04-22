@@ -23,6 +23,8 @@ import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.function.Supplier;
 import java.util.logging.*;
 
@@ -34,6 +36,7 @@ public class ClitherServer implements Server {
     private final String configurationFile = "server.properties";
     private final boolean debugMode = Boolean.getBoolean("debug");
     private final TickController tickController = new TickController(4);
+    private final Set<TickWorker> tickWorkers = new HashSet<TickWorker>();
     private final Messenger messenger = new Messenger();
     private Scheduler scheduler;
     private int tickThreads = Integer.getInteger("tickThreads", 1);
@@ -168,7 +171,7 @@ public class ClitherServer implements Server {
             log.warning("Use of multiple tick threads is experimental and may be unstable!");
         }
         for (int i = 0; i < tickThreads; i++) {
-            //tickWorkers.add(new TickWorker());
+            tickWorkers.add(new TickWorker());
         }
         if (!new File(configurationFile).isFile()) {
             saveConfig();
@@ -201,17 +204,17 @@ public class ClitherServer implements Server {
                 System.exit(1);
             }
         }
-        //tickWorkers.forEach(TickWorker::start);
+        tickWorkers.forEach(TickWorker::start);
         running = true;
         while (running) {
             try {
                 long startTime = System.currentTimeMillis();
                 tick++;
-                //world.tick(this::tick);
+                // world.tick(this::tick);
                 for (PlayerImpl player : playerList.getAllPlayers()) {
                     //tick(player.getTracker()::updateNodes);
                 }
-                //tickWorkers.forEach(TickWorker::waitForCompletion);
+                // tickWorkers.forEach(TickWorker::waitForCompletion);
                 long tickDuration = System.currentTimeMillis() - startTime;
                 if (tickDuration < 50) {
                     log.finer("Tick took " + tickDuration + "ms, sleeping for a bit");

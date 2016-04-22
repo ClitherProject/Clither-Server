@@ -18,7 +18,6 @@ public class SnakeImpl extends EntityImpl implements Snake {
 
     private final SnakeOwner owner;
     private String name;
-    private long recombineTicks = 0;
 
     public SnakeImpl(SnakeOwner owner, WorldImpl world, Position position) {
         super(EntityType.SNAKE, world, position);
@@ -51,20 +50,8 @@ public class SnakeImpl extends EntityImpl implements Snake {
         return 30.0D * Math.pow(mass, -1.0D / 4.5D) * 50.0D / 40.0D;
     }
 
-    public long getRecombineTicks() {
-        return recombineTicks;
-    }
-
-    public void setRecombineTicks(long recombineTicks) {
-        this.recombineTicks = recombineTicks;
-    }
-
     @Override
     public void tick() {
-        if (recombineTicks > 0) {
-            recombineTicks--;
-        }
-
         move();
         eat();
     }

@@ -13,6 +13,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 import java.util.logging.Logger;
 
 import org.clitherproject.clither.api.Clither;
+import org.clitherproject.clither.api.entity.Player;
 import org.clitherproject.clither.api.entity.Snake;
 import org.clitherproject.clither.server.net.PlayerConnection;
 import org.clitherproject.clither.server.net.packet.universal.PacketOMPMessage;
@@ -21,7 +22,7 @@ import com.google.common.collect.ImmutableSet;
 
 import io.netty.channel.Channel;
 
-public class PlayerImpl {
+public class PlayerImpl implements Player {
     private final PlayerConnection playerConnection;
     private final Set<Snake> snakes = new HashSet<>();
     private final PlayerTracker tracker;

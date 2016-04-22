@@ -19,11 +19,8 @@ public class PacketRegistry {
         CLIENTBOUND.registerPacket(1, PacketOutSetUsername.class);
 
         // Serverbound packets
-        SERVERBOUND.registerPacket(1, PacketInG.class);
-        SERVERBOUND.registerPacket(2, PacketInNewSnake.class);
-        SERVERBOUND.registerPacket(3, PacketInPong.class);
-        SERVERBOUND.registerPacket(4, PacketInSpawnFood.class);
-        SERVERBOUND.registerPacket(5, PacketInGlobalHighscore.class);
+        SERVERBOUND.registerPacket(1, PacketInInitial.class);
+        SERVERBOUND.registerPacket(2, PacketInUpdateSnake.class);
     }
 
     // Static-use class
