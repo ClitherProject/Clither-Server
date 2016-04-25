@@ -6,6 +6,7 @@ import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.codec.http.FullHttpRequest;
 import io.netty.handler.codec.http.websocketx.*;
 
+@SuppressWarnings("rawtypes")
 public class Handshaker extends SimpleChannelInboundHandler {
     private WebSocketServerHandshaker handshaker;
 

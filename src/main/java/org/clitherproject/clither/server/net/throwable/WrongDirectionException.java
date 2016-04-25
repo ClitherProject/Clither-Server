@@ -6,4 +6,6 @@ package org.clitherproject.clither.server.net.throwable;
  */
 public class WrongDirectionException extends RuntimeException {
 
+	private static final long serialVersionUID = 1L;
+
 }

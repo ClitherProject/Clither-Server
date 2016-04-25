@@ -13,7 +13,8 @@ import org.clitherproject.clither.server.net.packet.PacketRegistry;
 
 public class PacketEncoder extends MessageToMessageEncoder<Packet> {
 
-    @Override
+    @SuppressWarnings({ "deprecation", "unchecked", "rawtypes" })
+	@Override
     protected void encode(ChannelHandlerContext ctx, Packet packet, List out) throws Exception {
         ByteBuf buf = ctx.alloc().buffer().order(ByteOrder.BIG_ENDIAN);
         int packetId = PacketRegistry.CLIENTBOUND.getPacketId(packet.getClass());

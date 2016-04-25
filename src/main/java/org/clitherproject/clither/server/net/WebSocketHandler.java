@@ -11,6 +11,7 @@ import io.netty.handler.codec.http.websocketx.WebSocketFrame;
 import io.netty.handler.codec.http.websocketx.WebSocketServerHandshaker;
 import io.netty.handler.codec.http.websocketx.WebSocketServerHandshakerFactory;
 
+@SuppressWarnings("rawtypes")
 public class WebSocketHandler extends SimpleChannelInboundHandler {
 
     private WebSocketServerHandshaker handshaker;

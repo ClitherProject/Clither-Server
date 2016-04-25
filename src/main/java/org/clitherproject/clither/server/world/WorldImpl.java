@@ -23,6 +23,7 @@ import org.clitherproject.clither.server.tick.Tickable;
 
 import com.google.common.collect.ImmutableList;
 
+@SuppressWarnings("unused")
 public class WorldImpl implements World {
 
     private final Random random = new Random(System.nanoTime());

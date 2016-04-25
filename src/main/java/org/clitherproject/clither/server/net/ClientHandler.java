@@ -2,7 +2,6 @@ package org.clitherproject.clither.server.net;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.clitherproject.clither.api.event.player.PlayerDisconnectEvent;

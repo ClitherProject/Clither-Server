@@ -16,6 +16,7 @@ import org.clitherproject.clither.server.net.packet.inbound.PacketInUpdateSnake;
 import org.clitherproject.clither.server.net.throwable.UnhandledPacketException;
 import org.clitherproject.clither.server.world.PlayerImpl;
 
+@SuppressWarnings("unused")
 public class PlayerConnection {
 
     static Logger log = Logger.getGlobal();
@@ -26,7 +27,7 @@ public class PlayerConnection {
     private MousePosition globalMousePosition;
     private ConnectionState state = ConnectionState.AUTHENTICATE;
     private int protocolVersion;
-    private String authToken;
+	private String authToken;
 
     public PlayerConnection(PlayerImpl player, Channel channel) {
         this.player = player;

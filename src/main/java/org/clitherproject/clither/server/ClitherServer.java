@@ -11,9 +11,7 @@ import org.clitherproject.clither.server.config.Configuration;
 import org.clitherproject.clither.server.gui.ServerCLI;
 import org.clitherproject.clither.server.gui.ServerGUI;
 import org.clitherproject.clither.server.net.NetworkManager;
-import org.clitherproject.clither.server.tick.TickController;
 import org.clitherproject.clither.server.tick.TickWorker;
-import org.clitherproject.clither.server.tick.Tickable;
 import org.clitherproject.clither.server.world.PlayerImpl;
 import org.clitherproject.clither.server.world.WorldImpl;
 
@@ -25,9 +23,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.function.Supplier;
 import java.util.logging.*;
 
+@SuppressWarnings("unused")
 public class ClitherServer implements Server {
 
     public static final Logger log = Logger.getGlobal();
@@ -35,7 +33,6 @@ public class ClitherServer implements Server {
     private final PlayerList playerList = new PlayerList(this);
     private final String configurationFile = "server.properties";
     private final boolean debugMode = Boolean.getBoolean("debug");
-    private final TickController tickController = new TickController(4);
     private final Set<TickWorker> tickWorkers = new HashSet<TickWorker>();
     private final Messenger messenger = new Messenger();
     private Scheduler scheduler;

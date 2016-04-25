@@ -6,6 +6,7 @@ import java.util.logging.Logger;
 import org.clitherproject.clither.server.ClitherServer;
 import org.clitherproject.clither.server.world.PlayerImpl;
 
+@SuppressWarnings("unused")
 public class Commands {
 
 	public static void onCommand(String s) {

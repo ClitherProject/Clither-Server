@@ -5,7 +5,9 @@ package org.clitherproject.clither.server.net.throwable;
  */
 public class MalformedPacketException extends RuntimeException {
 
-    public MalformedPacketException() {
+	private static final long serialVersionUID = 1L;
+
+	public MalformedPacketException() {
     }
 
     public MalformedPacketException(String message) {

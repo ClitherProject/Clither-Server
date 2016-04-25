@@ -13,6 +13,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import org.clitherproject.clither.api.entity.Snake;
 
+@SuppressWarnings("unused")
 public class PlayerTracker {
 
     private final PlayerImpl player;

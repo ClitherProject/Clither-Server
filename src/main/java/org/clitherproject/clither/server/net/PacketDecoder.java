@@ -13,7 +13,8 @@ import org.clitherproject.clither.server.net.packet.PacketRegistry;
 
 public class PacketDecoder extends MessageToMessageDecoder<WebSocketFrame> {
 
-    @Override
+	@SuppressWarnings("deprecation")
+	@Override
     protected void decode(ChannelHandlerContext ctx, WebSocketFrame frame, List<Object> out) throws Exception {
         ByteBuf buf = frame.content().order(ByteOrder.BIG_ENDIAN);
         if (buf.capacity() < 1) {

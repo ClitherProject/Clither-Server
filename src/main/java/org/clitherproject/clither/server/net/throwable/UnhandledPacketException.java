@@ -2,7 +2,9 @@ package org.clitherproject.clither.server.net.throwable;
 
 public class UnhandledPacketException extends RuntimeException {
 
-    public UnhandledPacketException() {
+	private static final long serialVersionUID = 1L;
+
+	public UnhandledPacketException() {
     }
 
     public UnhandledPacketException(String message) {

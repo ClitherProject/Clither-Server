@@ -31,6 +31,7 @@ public class PlayerList {
         players.add(player);
     }
 
+    @SuppressWarnings("unused")
     public void removePlayer(PlayerImpl player) {
         log.info(player.getAddress().toString().split(":")[0]+" ("+player.getClientID()+") has disconnected from the server!");
         players.remove(player);

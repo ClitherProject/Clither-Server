@@ -32,6 +32,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
+@SuppressWarnings("unused")
 public class ServerGUI {
 
     private static boolean spawned = false;
@@ -43,7 +44,7 @@ public class ServerGUI {
     public static void spawn(ClitherServer server) {
         JFrame frame = new JFrame();
         frame.setLayout(new GridBagLayout());
-        frame.setTitle("Clither Server");
+        frame.setTitle("ClitherProject Server Frame v1.0");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JTextArea console = new JTextArea(40, 120);
