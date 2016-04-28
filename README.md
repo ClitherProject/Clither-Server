@@ -14,3 +14,4 @@
 * ThunderGemios10 (Developer/Project Lead)
 * Porama6400 (Developer/Project Co-Lead)
 * SkorrloreGaming-Productions (Developer/Moderator)
+* Willsr71 (Developer/Sponsor)
