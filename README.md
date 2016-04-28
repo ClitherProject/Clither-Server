@@ -1,6 +1,6 @@
-# Clither Server [![Travis-CI](https://travis-ci.org/ClitherProject/Clither-Server.svg)](https://travis-ci.org/ClitherProject/Clither-Server)
+# Clither Server [![Build Status](https://jenkins.willsr71.net/job/Clither-API/badge/icon)](https://jenkins.willsr71.net/job/Clither-API/)
 
-* Downloads: Will be released within the next week, keep a heads up!
+* [Downloads](https://jenkins.willsr71.net/job/Clither-Server/)
 
 # Upcoming Features:
 * Multithreading and Optimization.
