@@ -82,9 +82,8 @@
 
     <repositories>
         <repository>
-            <id>thundergemios10-repo</id>
-            <name>ClitherProject repo</name>
-            <url>http://repo.thundergemios10.com/content/repositories/snapshots/</url>
+            <id>willsr71-repo</id>
+            <url>https://repo.willsr71.net/content/repositories/public/</url>
         </repository>
     </repositories>
 
