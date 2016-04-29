@@ -1,6 +1,8 @@
 # Clither Server [![Build Status](https://jenkins.willsr71.net/job/Clither-API/badge/icon)](https://jenkins.willsr71.net/job/Clither-API/)
 
-* [Downloads](https://jenkins.willsr71.net/job/Clither-Server/)
+* [Downloads](https://jenkins.willsr71.net/job/Clither-Server/) (**Development Builds**)
+
+**Note: These are development builds! We cannot gurrantee that it will work at all!**
 
 # Upcoming Features:
 * Multithreading and Optimization.
