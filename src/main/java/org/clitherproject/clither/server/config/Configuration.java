@@ -7,6 +7,8 @@ import java.util.logging.Logger;
 public class Configuration {
 
     static Logger log = Logger.getGlobal();
+
+    private Configuration() {}
     
     public static ClitherConfig load(String file) {
         try(FileReader reader = new FileReader(file)) {

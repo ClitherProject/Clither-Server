@@ -9,6 +9,8 @@ import org.clitherproject.clither.server.world.PlayerImpl;
 @SuppressWarnings("unused")
 public class Commands {
 
+    private Commands() {}
+
 	public static void onCommand(String s) {
         switch (s.toLowerCase().split(" ")[0]) {
         case "help":

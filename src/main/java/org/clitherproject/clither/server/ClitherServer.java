@@ -117,23 +117,22 @@ public class ClitherServer implements Server {
     }
 
     public void saveConfig() {
-        PrintWriter writer = null;
         try {
-            writer = new PrintWriter("server.properties", "UTF-8");
+            PrintWriter writer = new PrintWriter("server.properties", "UTF-8");
+            writer.println("name=Unknown Server");
+            writer.println("ip=localhost");
+            writer.println("port=443");
+            writer.println("maxPlayers=20");
+            writer.println("maxMass=85500");
+            writer.println("foodSize=1");
+            writer.println("foodStartAmount=100");
+            writer.println("startMass=35");
+            writer.println("borderSize=6000");
+            writer.close();
         } catch (Exception ex) {
             log.severe("An internal error has occured whilist generating server.properties.");
             shutdown();
         }
-        writer.println("name=Unknown Server");
-        writer.println("ip=localhost");
-        writer.println("port=443");
-        writer.println("maxPlayers=20");
-        writer.println("maxMass=85500");
-        writer.println("foodSize=1");
-        writer.println("foodStartAmount=100");
-        writer.println("startMass=35");
-        writer.println("borderSize=6000");
-        writer.close();
         loadConfig();
     }
 
