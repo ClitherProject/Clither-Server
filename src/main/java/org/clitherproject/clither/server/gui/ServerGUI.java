@@ -97,7 +97,7 @@ public class ServerGUI {
     private static class TextAreaOutputStream extends OutputStream {
 
         private final JTextArea textArea;
-        private final StringBuffer buffer = new StringBuffer();
+        private final StringBuilder buffer = new StringBuilder();
 
         public TextAreaOutputStream(JTextArea textArea) {
             this.textArea = textArea;

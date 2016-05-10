@@ -33,9 +33,9 @@ public class PlayerList {
 
     @SuppressWarnings("unused")
     public void removePlayer(PlayerImpl player) {
-        log.info(player.getAddress().toString().split(":")[0]+" ("+player.getClientID()+") has disconnected from the server!");
-        players.remove(player);
         if (player != null) {
+            log.info(player.getAddress().toString().split(":")[0]+" ("+player.getClientID()+") has disconnected from the server!");
+            players.remove(player);
             for (Snake snake : player.getSnakes()) {
                 server.getWorld().removeEntity(null);
             }

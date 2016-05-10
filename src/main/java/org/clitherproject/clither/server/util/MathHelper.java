@@ -18,6 +18,8 @@ package org.clitherproject.clither.server.util;
 
 public class MathHelper {
 
+    private MathHelper() {}
+
     /**
      * A fast absolute value function.
      * <p>
