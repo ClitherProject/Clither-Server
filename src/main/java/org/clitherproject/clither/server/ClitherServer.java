@@ -192,8 +192,7 @@ public class ClitherServer implements Server {
         try {
             networkManager.start();
         } catch (IOException | InterruptedException ex) {
-            log.info("Failed to start server! " + ex.getMessage());
-            ex.printStackTrace();
+            log.log(Level.SEVERE, "Failed to start server! " + ex.getMessage(), ex);
             if (ServerGUI.isSpawned()) {
                 System.exit(1);
             } else {
@@ -229,7 +228,7 @@ public class ClitherServer implements Server {
         try {
             Thread.sleep(1500);
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            log.log(Level.SEVERE, e.getMessage(), e);
         }
         System.exit(-1);
     }
