@@ -18,11 +18,13 @@ package org.clitherproject.clither.server.gui;
 
 import org.clitherproject.clither.server.ClitherServer;
 import java.io.IOException;
-import jline.TerminalFactory;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import jline.console.ConsoleReader;
 
 public class ServerCLI implements Runnable {
 
+    public static final Logger log = Logger.getGlobal();
     private final ClitherServer server;
 
     public ServerCLI(ClitherServer server) {
@@ -39,12 +41,12 @@ public class ServerCLI implements Runnable {
                 server.handleCommand(line);
             }
         } catch (IOException ex) {
-            ex.printStackTrace();
+            log.log(Level.SEVERE, ex.getMessage(), ex);
         } finally {
             try {
-                TerminalFactory.get().restore();
             } catch (Exception ex) {
                 ex.printStackTrace();
+                log.log(Level.SEVERE, ex.getMessage(), ex);
             }
         }
     }

@@ -28,7 +28,7 @@ public class Configuration {
             return conf;
         } catch (Exception ex) {
             log.info("An internal error has occured whilist reading configuration file!");
-            log.info(ex.getMessage().toString());
+            log.info(ex.getMessage());
             return new ClitherConfig();
         }
     }

@@ -77,7 +77,7 @@ public abstract class EntityImpl implements Entity, Tickable {
 
     @Override
     public int getPhysicalSize() {
-        return (int) Math.ceil(Math.sqrt(100 * mass));
+        return (int) Math.ceil(Math.sqrt(100D * mass));
     }
 
     @Override

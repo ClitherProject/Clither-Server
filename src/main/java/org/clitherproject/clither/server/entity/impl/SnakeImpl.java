@@ -62,7 +62,6 @@ public class SnakeImpl extends EntityImpl implements Snake {
         }
 
         PlayerImpl player = (PlayerImpl) owner;
-        int r = getPhysicalSize();
 
         PlayerConnection.MousePosition mouse = player.getConnection().getCellMousePosition(getID());
         if (mouse == null || !player.getConnection().isIndividualMovementEnabled()) {
@@ -129,9 +128,6 @@ public class SnakeImpl extends EntityImpl implements Snake {
             if (other instanceof FoodImpl) {
                 edibles.add(other);
                 continue;
-            } else if (other instanceof SnakeImpl) {
-                SnakeImpl otherCell = (SnakeImpl) other;
-
             }
 
             // Is the other cell big enough to eat?
