@@ -151,8 +151,8 @@ public class WorldImpl implements World {
     }
 
     public Position getRandomPosition() {
-        return new Position((random.nextDouble() * (Math.abs(border.left) + Math.abs(border.right))),
-                (random.nextDouble() * (Math.abs(border.top) + Math.abs(border.bottom))));
+        return new Position(random.nextDouble() * (Math.abs(border.left) + Math.abs(border.right)),
+                random.nextDouble() * (Math.abs(border.top) + Math.abs(border.bottom)));
     }
 
     private void spawnFood() {
