@@ -40,8 +40,6 @@ public class ClientHandler extends SimpleChannelInboundHandler<Packet> {
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-        //server.getLogger().log(Level.SEVERE, "Encountered exception in pipeline for client at " + ctx.channel().remoteAddress() + "; disconnecting client.", cause);
-        //ctx.channel().close();
     }
 }
 

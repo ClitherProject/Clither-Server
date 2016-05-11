@@ -4,7 +4,6 @@ import com.google.common.collect.ImmutableList;
 import org.clitherproject.clither.server.ClitherServer;
 import org.clitherproject.clither.server.entity.EntityImpl;
 import org.clitherproject.clither.server.net.PlayerConnection;
-// import org.clitherproject.clither.server.net.packet.outbound.PacketOutUpdateNodes;
 import java.util.ArrayDeque;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -148,6 +147,5 @@ public class PlayerTracker {
             }
         }
 
-        // conn.sendPacket(new PacketOutUpdateNodes(world, removals, updates));
     }
 }

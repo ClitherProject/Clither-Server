@@ -206,11 +206,8 @@ public class ClitherServer implements Server {
             try {
                 long startTime = System.currentTimeMillis();
                 tick++;
-                // world.tick(this::tick);
                 for (PlayerImpl player : playerList.getAllPlayers()) {
-                    //tick(player.getTracker()::updateNodes);
                 }
-                // tickWorkers.forEach(TickWorker::waitForCompletion);
                 long tickDuration = System.currentTimeMillis() - startTime;
                 if (tickDuration < 50) {
                     log.finer("Tick took " + tickDuration + "ms, sleeping for a bit");
