@@ -51,7 +51,6 @@ public class PlayerImpl implements Player {
         snakes.add(snake);
         tracker.updateView();
         tracker.updateNodes();
-        // playerConnection.sendPacket(new PacketOutAddNode(cell.getID()));
     }
 
     public void removeSnake(Snake snake) {

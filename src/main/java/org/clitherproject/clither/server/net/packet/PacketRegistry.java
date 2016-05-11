@@ -7,7 +7,6 @@ import gnu.trove.map.hash.TObjectIntHashMap;
 
 import org.clitherproject.clither.server.net.packet.inbound.*;
 import org.clitherproject.clither.server.net.packet.outbound.*;
-// import org.clitherproject.clither.server.net.packet.universal.*;
 
 public class PacketRegistry {
 

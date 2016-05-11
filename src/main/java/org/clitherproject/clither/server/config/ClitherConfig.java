@@ -20,7 +20,6 @@ public class ClitherConfig {
         public View view = new View();
         public Border border = new Border();
         public Food food = new Food();
-        // public Mass mass = new Mass();
 
         public static class View {
 
@@ -46,20 +45,12 @@ public class ClitherConfig {
             
         }
         
-        // public static class Mass {
-
-            // public int ejectedMassSize = 28; // The amount the real mass will be after ejection
-            
-        // }
-        
     }
 
     public static class Player {
 
         public int startMass = 35;
         public int maxMass = 255000;
-        // public double massDecayRate = 0.0001D; // Mass lost per tick
-        // public int minMassToDecay = 9;
         public int maxNickLength = 15;
     }
 }

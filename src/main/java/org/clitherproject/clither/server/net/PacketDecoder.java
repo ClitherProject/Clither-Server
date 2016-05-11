@@ -27,7 +27,6 @@ public class PacketDecoder extends MessageToMessageDecoder<WebSocketFrame> {
         Packet packet = PacketRegistry.SERVERBOUND.constructPacket(packetId);
 
         if (packet == null) {
-            //throw new UnknownPacketException("Unknown packet ID: " + packetId);
             return;
         }
 
