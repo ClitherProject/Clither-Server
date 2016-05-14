@@ -31,7 +31,7 @@ public class ClitherServer implements Server {
     public static final Logger log = Logger.getGlobal();
     private static ClitherServer instance;
     private final PlayerList playerList = new PlayerList(this);
-    private final String configurationFile = "server.properties";
+    private static final String configurationFile = "server.properties";
     private final boolean debugMode = Boolean.getBoolean("debug");
     private final Set<TickWorker> tickWorkers = new HashSet<TickWorker>();
     private final Messenger messenger = new Messenger();

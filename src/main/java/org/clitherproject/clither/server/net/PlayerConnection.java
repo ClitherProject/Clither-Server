@@ -99,7 +99,7 @@ public class PlayerConnection {
         return true;
     }
 
-    private static enum ConnectionState {
+    private enum ConnectionState {
 
         AUTHENTICATE, RESET, CONNECTED;
     }

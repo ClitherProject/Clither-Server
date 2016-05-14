@@ -162,4 +162,25 @@ public class SnakeImpl extends EntityImpl implements Snake {
     private boolean simpleCollide(Snake other, double collisionDist) {
         return MathHelper.fastAbs(getX() - other.getPosition().getX()) < (2 * collisionDist) && MathHelper.fastAbs(getY() - other.getPosition().getY()) < (2 * collisionDist);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+
+        SnakeImpl snake = (SnakeImpl) o;
+
+        if (owner != null ? !owner.equals(snake.owner) : snake.owner != null) return false;
+        return name != null ? name.equals(snake.name) : snake.name == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = super.hashCode();
+        result = 31 * result + (owner != null ? owner.hashCode() : 0);
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        return result;
+    }
 }

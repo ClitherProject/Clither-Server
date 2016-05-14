@@ -32,7 +32,8 @@ public class Commands {
         case "stop":
             ClitherServer.getInstance().shutdown();
             break;
-		
+        default:
+            break;
         }
 	}
 }
