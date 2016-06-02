@@ -8,7 +8,7 @@ import io.netty.handler.codec.http.websocketx.*;
 
 @SuppressWarnings("rawtypes")
 public class Handshaker extends SimpleChannelInboundHandler {
-    private WebSocketServerHandshaker handshaker;
+    private WebSocketServerHandshaker serverHandshaker;
 
     @Override
     protected void channelRead0(ChannelHandlerContext handlerContext, Object request) throws Exception {
@@ -16,20 +16,20 @@ public class Handshaker extends SimpleChannelInboundHandler {
         if (request instanceof FullHttpRequest) {
             FullHttpRequest fullRequest = (FullHttpRequest) request;
             WebSocketServerHandshakerFactory wsFactory = new WebSocketServerHandshakerFactory("ws://" + fullRequest.headers().get(HttpHeaders.HOST) + "/", null, true);
-            handshaker = wsFactory.newHandshaker(fullRequest);
+            serverHandshaker = wsFactory.newHandshaker(fullRequest);
 
-            if (handshaker == null) {
+            if (serverHandshaker == null) {
                 WebSocketServerHandshakerFactory.sendUnsupportedVersionResponse(handlerContext.channel());
             } else {
-                handshaker.handshake(handlerContext.channel(), fullRequest);
+                serverHandshaker.handshake(handlerContext.channel(), fullRequest);
             }
         } else if (request instanceof WebSocketFrame) {
 
             WebSocketFrame frame = (WebSocketFrame) request;
 
             if (request instanceof CloseWebSocketFrame) {
-                if (handshaker != null) {
-                    handshaker.close(handlerContext.channel(), ((CloseWebSocketFrame) request).retain());
+                if (serverHandshaker != null) {
+                    serverHandshaker.close(handlerContext.channel(), ((CloseWebSocketFrame) request).retain());
                 }
             } else if (request instanceof PingWebSocketFrame) {
                 handlerContext.channel().write(new PongWebSocketFrame(frame.content().retain()));

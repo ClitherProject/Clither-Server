@@ -20,17 +20,13 @@ import org.clitherproject.clither.server.world.PlayerImpl;
 public class PlayerConnection {
 
     static Logger log = Logger.getGlobal();
-    private final PlayerImpl player;
     private final Channel channel;
     private final Map<Integer, MousePosition> cellMousePositions = new HashMap<>();
     private boolean individualMovementEnabled = false;
     private MousePosition globalMousePosition;
     private ConnectionState state = ConnectionState.AUTHENTICATE;
-    private int protocolVersion;
-	private String authToken;
 
     public PlayerConnection(PlayerImpl player, Channel channel) {
-        this.player = player;
         this.channel = channel;
     }
 
