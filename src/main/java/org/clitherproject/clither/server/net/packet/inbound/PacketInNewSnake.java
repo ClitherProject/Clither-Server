@@ -4,8 +4,8 @@ import io.netty.buffer.ByteBuf;
 import org.clitherproject.clither.server.net.packet.Packet;
 
 public class PacketInNewSnake extends Packet {
-    int U1 = 0; //UNKNOWN
-    int U2 = 0; //UNKNOWN
+    int u1 = 0; //UNKNOWN
+    int u2 = 0; //UNKNOWN
     int packetType = -1;
     
 	@Override
