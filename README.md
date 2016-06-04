@@ -1,6 +1,6 @@
-# Clither Server [![Build Status](https://ci.noxal.net/job/Clither-API/badge/icon)](https://jenkins.willsr71.net/job/Clither-API/)
+# Clither Server [![Build Status](https://ci.noxal.net/job/Clither-API/badge/icon)](https://ci.noxal.net/job/Clither-API/)
 
-* [Downloads](https://jenkins.willsr71.net/job/Clither-Server/) (**Development Builds**)
+* [Downloads](https://ci.noxal.net/job/Clither-Server/) (**Development Builds**)
 
 **Note: These are development builds! We cannot gurrantee that it will work at all!**
 

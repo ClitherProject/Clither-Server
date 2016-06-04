@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.clitherproject</groupId>
     <artifactId>clither-server</artifactId>
@@ -16,6 +17,13 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <netty.version>4.0.29.Final</netty.version>
     </properties>
+
+    <repositories>
+        <repository>
+            <id>noxal-repo</id>
+            <url>https://repo.noxal.net/content/repositories/public/</url>
+        </repository>
+    </repositories>
 
     <dependencies>
         <dependency>
@@ -74,31 +82,24 @@
             <version>2.13</version>
         </dependency>
         <dependency>
-	<groupId>log4j</groupId>
-	<artifactId>log4j</artifactId>
-	<version>1.2.17</version>
-</dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
     </dependencies>
-
-    <repositories>
-        <repository>
-            <id>willsr71-repo</id>
-            <url>https://repo.willsr71.net/content/repositories/public/</url>
-        </repository>
-    </repositories>
 
     <build>
         <defaultGoal>install</defaultGoal>
         <plugins>
-          <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-compiler-plugin</artifactId>
-              <version>3.5.1</version>
-              <configuration>
-              <source>1.8</source>
-              <target>1.8</target>
-          </configuration>
-</plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.5.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
