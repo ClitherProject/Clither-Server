@@ -1,4 +1,4 @@
-# Clither Server [![Build Status](https://jenkins.willsr71.net/job/Clither-API/badge/icon)](https://jenkins.willsr71.net/job/Clither-API/)
+# Clither Server [![Build Status](https://ci.noxal.net/job/Clither-API/badge/icon)](https://jenkins.willsr71.net/job/Clither-API/)
 
 * [Downloads](https://jenkins.willsr71.net/job/Clither-Server/) (**Development Builds**)
 
